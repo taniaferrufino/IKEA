@@ -1,0 +1,34 @@
+import SellerSideBar from "./SellerSidebar"
+
+function AddProduct(){
+    return (
+        <div className="container mt-4">
+        <div className="row">
+            <div className="col-md-3 col-12 mb-2">
+                <SellerSideBar/>
+            </div>
+            <div className="col-md-9 col-12 mb-2">
+                <div className="card">
+                    <h4 className="card-header">Agregar Producto</h4>
+                    <div className="card-body">
+                        <form>
+                            <div className="mb-3">
+                                <label for='category' className="form-label">
+                                    Categoria del Producto
+                                </label>
+                                <select className="form-control">
+                                <option>Camiseta Serigrafiada</option>
+                                <option>Llavero personalizado</option>
+                                <option>Boxeres con tu cara</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    )
+}
+
+export default AddProduct
