@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
-import abanico from "../../abanico.jpg";
-
+import logo from "../../logo.svg"
 import SellerSideBar from "./SellerSidebar";
-
 function VendorOrders(props) {
     return (
         <div className="container mt-4">
@@ -29,7 +27,7 @@ function VendorOrders(props) {
                                         <td>1</td>
                                         <td>
                                             <Link>
-                                                <img src={abanico} className="img-thumbnail" width="80" alt="..." />
+                                                <img src={logo} className="img-thumbnail" width="80" alt="..." />
                                             </Link>
                                             <p className="text-center">
                                                 <Link>Abanico</Link>
@@ -59,7 +57,7 @@ function VendorOrders(props) {
                                         <td>2</td>
                                         <td>
                                             <Link>
-                                                <img src={abanico} className="img-thumbnail" width="80" alt="..." />
+                                                <img src={logo} className="img-thumbnail" width="80" alt="..." />
                                             </Link>
                                             <p className="text-center">
                                                 <Link>Abanico</Link>

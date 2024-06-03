@@ -11,8 +11,8 @@ function checkout(props){
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>producto</th>
-                                <th>precio</th>
+                                <th>Producto</th>
+                                <th>Precio</th>
                             </tr>
                         </thead>
                         <tbody>

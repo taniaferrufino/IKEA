@@ -2,7 +2,7 @@ function OrderSuccess() {
     return (
         <div className="container mt-4">
             <div className="row">
-                <h1>es un encanto</h1>
+                <h1>Es un encanto</h1>
             </div>
         </div>
     )

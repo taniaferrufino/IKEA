@@ -1,65 +1,82 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+
+#vendor model
 class Vendor(models.Model):
-    user= models.ForeignKey(User, on_delete= models.CASCADE, default=None)
-    location = models.CharField(max_length=50)
-    email = models.EmailField(default='noreply@example.com')
-    image = models.ImageField(null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    address = models.TextField(null= True)
     
     def __str__(self):
         return self.user.username
     
+#product category
 class ProductCategory(models.Model):
-    title =models.CharField(max_length=200)
-    detail  =  models.TextField(null = False)
+    title = models.CharField(max_length=200)
+    detail = models.TextField(null= True) 
+    
+    def __str__(self):
+        return self.title
+
+#product
+class Product(models.Model):
+    category = models.ForeignKey(ProductCategory, on_delete=models.SET_NULL, null= True, related_name='category_product')
+    vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null= True)
+    title = models.CharField(max_length=200)
+    slug= models.CharField(max_length=300, unique=True, null= True)
+    detail = models.TextField(null= True)
+    price = models.FloatField()
+    tags= models.TextField(null= True)
+    image=models.ImageField(upload_to='product_imgs/', null= True)
+    demo_url = models.URLField(null= True,blank=True)
     
     def __str__(self):
         return self.title
     
-class Product(models.Model):
-       category = models.ForeignKey(ProductCategory, on_delete=models.SET_NULL, null=True)
-       vendor  = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True)
-       name = models.CharField(max_length=20)
-       detail = models.TextField(null=False)
-       price = models. FloatField()
-       
-       def __str__(self):
-          return self.name
-      
+    def tag_list(self):
+        return self.tags.split(',')
+    
 class Customer(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    mobile = models.PositiveBigIntegerField(unique=True) 
+    mobile = models.PositiveBigIntegerField (unique=True)
     
     def __str__(self):
-            return self.user.username
-         
+        return self.user.username
 
 class Order(models.Model):
-        customer= models.ForeignKey(Customer, on_delete=models.CASCADE, related_name = 'orders',  default= None)
-        order_time= models.DateTimeField(auto_now_add=True)
-        
-        def __unicode__(self):
-            return '%s' %(self.order_time)
-        
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer_order')
+    order_time = models.DateTimeField(auto_now_add=True)
+    
+    def __unicode__(self):
+        return '%s' %(self,order_time)
+    
 class OrderItems(models.Model):
-    order= models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items') 
-    product =models.ForeignKey(Product, on_delete=models.CASCADE)       
-        
+    order =models.ForeignKey(Order, on_delete=models.CASCADE, related_name='order_items')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    
     def __str__(self):
-        return self.product.name
+        return self.product.title
     
-    
-class ShippingAddress(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE) 
-    city=models.CharField(max_length=20)  
-    address= models.CharField(max_length=100)
-    
+class CustomerAddress(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer_address')
+    address = models.TextField()
+    default_address = models.BooleanField(default=False)
     
     def __str__(self):
         return self.address
-
-class PaymentMethod(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    method = models.CharField(max_length=50)  
-    details = models.TextField()  
+  
+class ProductRating(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='rating_customer') 
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_ratings')
+    rating = models.IntegerField()
+    reviews = models.TextField()
+    add_time = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f'{self.rating} - {self.reviews}'
+    
+class ProductImages(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_imgs')
+    image = models.ImageField(upload_to='product_imgs/', null=True)
+    
+    def __str__(self):
+        return self.image.url
