@@ -15,7 +15,7 @@ import CategoryProducts from "./components/CategoryProducts";
 import AllProducts from "./components/AllProducts";
 import ProductDetail from "./components/ProductDetail";
 import Checkout from "./components/Checkout";
-import Instructor from "./components/seller/Vendor"
+import Instructor from "./components/vendor/Vendor"
 
 //customer panel
 import Register from "./components/Customer/Register";
@@ -38,6 +38,8 @@ import SellerReports from "./components/seller/Reports";
 import SellerProfile from "./components/seller/Profile";
 import Product from "./components/seller/Product";
 import SellerChangePassword from "./components/seller/ChangePassword";
+import Context from "./Context";
+import Vendor from "./components/vendor/Vendor";
 
 function App() {
   return (
@@ -51,6 +53,8 @@ function App() {
         <Route path="/category/:category_slug/:category_id" element={<CategoryProducts />} />
         <Route path="/product/:product_slug/:product_id/" element={<ProductDetail />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/context" element={<Context />} />
+        <Route path="/vendor" element={<Vendor/>} />
 
         {/* Customer Routes */}
         <Route path="/customer/register" element={<Register />} />
