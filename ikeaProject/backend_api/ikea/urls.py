@@ -8,6 +8,7 @@ router.register('productrating', views.ProductRatingViewSet)
 
 
 urlpatterns = [
+    #vendors
     path('vendors/', views.VendorList.as_view()),
     path('vendor/<int:pk>/', views.VendorDetail.as_view()),
     

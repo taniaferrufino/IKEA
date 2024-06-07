@@ -39,7 +39,7 @@ function Home() {
     fetch(baseUrl)
       .then((response) => response.json())
       .then((data) => {
-        setVendors(data.results || []); // Assuming your API returns the vendors under 'results'
+        setVendors(data.results || []); 
         setTotalResult(data.count || 0);
       })
       .catch((error) => {
@@ -48,16 +48,17 @@ function Home() {
   }
 
   return (
-    <main className="mt-4">
+    <main className="bg-info">
       <div className="container">
+        <br/>
         {/* latest product section */}
-        <h3 className="mt-4"> Ultimos modelos <Link to="/products" className="float-end btn btn-danger"> Ver serigrafiados disponibles{" "}<i className="fa-solid fa-arrow-right-long"></i></Link></h3>
+        <h3 className=""  style={{fontFamily:'Fauna One', fontSize:30}}> Ultimos modelos <Link to="/products" className="float-end btn btn-danger"> Ver serigrafiados disponibles{" "}<i className="fa-solid fa-arrow-right-long"></i></Link></h3>
         <div className="row mb-4">
           {products.map((product) => <SingleProduct key={product.id} product={product} />)}
         </div>
 
         {/* latest category section */}
-        <h3 className="mt-4">categorias populares
+        <h3 className="mt-4" style={{fontFamily:'Fauna One', fontSize:30}}>categorias populares
           <a href="#" className="float-end btn btn-danger">
             Ver todos las categorias populares{" "}
             <i className="fa-solid fa-arrow-right-long"></i>
@@ -116,9 +117,9 @@ function Home() {
         {/* end product section */}
 
       {/* latest vendors product section */}
-      <h3 className="mt-4">
+      <h3 className="mt-4" style={{fontFamily:'Fauna One', fontSize:30}}>
             Vendedores populares
-            <a href="#" className="float-end btn btn-dark">
+            <a href="#" className="float-end btn btn-danger">
               Ver todos los vendedores populares{" "}
               <i className="fa-solid fa-arrow-right-long"></i>
             </a>
@@ -130,7 +131,7 @@ function Home() {
               <div className="card">
                 <img src={mario} className="card-img-top" alt="..." />
                 <div className="card-body">
-                  <h4 className="card-title">Mario Diaz</h4>
+                  <h4 className="card-title"style={{fontFamily:'Fauna One', fontSize:30}} >Mario Diaz</h4>
                 </div>
                 <div className="card-footer">
                   <div className="card-footer">
@@ -140,12 +141,13 @@ function Home() {
               </div>
             </div>
             {/* product box end */}
+
             {/* product box */}
             <div className="col-12 col-md-3 mb-2">
               <div className="card">
                 <img src={marlon} className="card-img-top" alt="..." />
                 <div className="card-body">
-                  <h4 className="card-title">Marlon Peralta</h4>
+                  <h4 className="card-title text-center" style={{fontFamily:'Fauna One', fontSize:30}}>Marlon Peralta</h4>
                 </div>
                 <div className="card-footer">
                   <div className="card-footer">
@@ -158,7 +160,7 @@ function Home() {
               <div className="card">
                 <img src={tania} className="card-img-top" alt="..." />
                 <div className="card-body">
-                  <h4 className="card-title">Tania Ferrufino</h4>
+                  <h4 className="card-title text-center" style={{fontFamily:'Fauna One', fontSize:30}}>Tania Ferrufino</h4>
                 </div>
                 <div className="card-footer">
                   <div className="card-footer">
@@ -171,7 +173,7 @@ function Home() {
               <div className="card">
                 <img src={Mayi} className="card-img-top" alt="..." />
                 <div className="card-body">
-                  <h4 className="card-title">Mayra Rodriguez</h4>
+                  <h4 className="card-title  text-center" style={{fontFamily:'Fauna One', fontSize:30}}>Mayra Rodriguez</h4>
                 </div>
                 <div className="card-footer">
                   <div className="card-footer">
