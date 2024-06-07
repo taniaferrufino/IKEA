@@ -7,6 +7,10 @@ import tania from "../image/Tania.png";
 import mario from "../image/Diego.png";
 import Mayi from "../image/Mayi.jpg"
 import Vendor from "./vendor/Vendor";
+import termos  from "../image/Termo hielo.png"
+import camiseta from "../image/Camiseta barbie.png"
+import taza  from "../image/Dragon ball.png"
+import abanico  from "../image/Abanico manual rosa.png"
 
 function Home() {
   const baseUrl = "http://127.0.0.1:8000/api";
@@ -64,7 +68,7 @@ function Home() {
           {/* product box */}
           <div className="col-12 col-md-3 mb-2">
             <div className="card">
-              <img src={logo} className="card-img-top" alt="..." />
+              <img src={termos} className="card-img-top" alt="..." />
               <div className="card-body">
                 <h4 className="card-title">Termo</h4>
               </div>
@@ -76,9 +80,9 @@ function Home() {
           {/* product box */}
           <div className="col-12 col-md-3 mb-2">
             <div className="card">
-              <img src={logo} className="card-img-top" alt="..." />
+              <img src={taza} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h4 className="card-title">Nombre categoria</h4>
+                <h4 className="card-title">Taza</h4>
               </div>
               <div className="card-footer">Products downloads: 202555</div>
             </div>
@@ -88,7 +92,7 @@ function Home() {
           {/* product box */}
           <div className="col-12 col-md-3 mb-2">
             <div className="card">
-              <img src={logo} className="card-img-top" alt="..." />
+              <img src={camiseta} className="card-img-top" alt="..." />
               <div className="card-body">
                 <h4 className="card-title text-center">Camiseta</h4>
               </div>
@@ -100,9 +104,9 @@ function Home() {
           {/* product box */}
           <div className="col-12 col-md-3 mb-2">
             <div className="card">
-              <img src={logo} className="card-img-top" alt="..." />
+              <img src={abanico} className="card-img-top" alt="..." />
               <div className="card-body">
-                <h4 className="card-title">Nombre categoria</h4>
+                <h4 className="card-title">Abanico</h4>
               </div>
               <div className="card-footer">Products downloads: 202555</div>
             </div>
@@ -111,20 +115,77 @@ function Home() {
         </div>
         {/* end product section */}
 
-        {/* latest vendors product section */}
-        <h3 className="mt-4">
-          Vendedores populares
-          <Link to="vendors/" className="float-end btn btn-danger">
-            Ver todos los vendedores populares{" "}
-            <i className="fa-solid fa-arrow-right-long"></i>
-          </Link>
-        </h3>
-        <div className="row mb-4">
-          {vendors.map((vendor) => <Vendor key={vendor.id} vendor={vendor} />)}
-        </div>
-        {/* end product section */}
-      </div>
+      {/* latest vendors product section */}
+      <h3 className="mt-4">
+            Vendedores populares
+            <a href="#" className="float-end btn btn-dark">
+              Ver todos los vendedores populares{" "}
+              <i className="fa-solid fa-arrow-right-long"></i>
+            </a>
+          </h3>
 
+          <div className="row mb-4">
+            {/* product box */}
+            <div className="col-12 col-md-3 mb-2">
+              <div className="card">
+                <img src={mario} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h4 className="card-title">Mario Diaz</h4>
+                </div>
+                <div className="card-footer">
+                  <div className="card-footer">
+                    categorias: <a href="#">python</a> , <a href="#">Django</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* product box end */}
+            {/* product box */}
+            <div className="col-12 col-md-3 mb-2">
+              <div className="card">
+                <img src={marlon} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h4 className="card-title">Marlon Peralta</h4>
+                </div>
+                <div className="card-footer">
+                  <div className="card-footer">
+                    categorias: <a href="#">camisetas</a> , <a href="#">vasos</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div className="col-12 col-md-3 mb-2">
+              <div className="card">
+                <img src={tania} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h4 className="card-title">Tania Ferrufino</h4>
+                </div>
+                <div className="card-footer">
+                  <div className="card-footer">
+                    categorias: <a href="#">abanicos</a> , <a href="#">camisetas</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div className="col-12 col-md-3 mb-2">
+              <div className="card">
+                <img src={Mayi} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h4 className="card-title">Mayra Rodriguez</h4>
+                </div>
+                <div className="card-footer">
+                  <div className="card-footer">
+                    categorias: <a href="#">termos</a> , <a href="#">tazas</a>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </div> 
+              </div>
+            {/* product box end */}
+
+            {/* product box */}
+              
       {/* Carusel */}
       <div id="carouselExampleIndicators" className="carousel slide my-4 border bg-warning text-dark p-5" data-bs-ride="true">
         <div className="carousel-indicators">

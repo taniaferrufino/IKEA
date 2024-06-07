@@ -18,12 +18,11 @@ function CategoryProducts() {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 setProducts(data.results); 
                 setTotalResult(data.count);
             })
     }
-        
+
     function changeUrl(baseurl) {
         fetchData(baseurl);
     }
@@ -60,4 +59,4 @@ function CategoryProducts() {
     );
 }
 
-export default CategoryProducts;
+export default CategoryProducts;    
